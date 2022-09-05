@@ -1,7 +1,22 @@
 # Kochava Project :: Postback Delivery
 
 ## Description
-A service to function as a small scale simulation of how Kochava distributes data to third parties in real time.
+A service to function as a small scale simulation of how Kochava distributes data to third parties in real time. 
+
+## App Operation (System Design)
+The project consists of a php application to ingest http requests and a go application to deliver http responses with a kafka job queue between them.
+
+The interaction flow between the components is the following:
+
+**Web request &rarr; Ingestion Agent (php) &rarr; Delivery Queue (kafka) &rarr; Delivery Agent (go) &rarr; Web response**
+
+The detailed app operation is:
+
+1) Ingestion agent accepts incoming http request
+2) Ingestion agent pushes a postback object to the kafka  delivery queue for each "data" object contained in accepted request.
+3) Delivery agent continuously pulls postback objects from kafka delivery queue.
+4) Delivery agent delivers each postback object to the http endpoint after having filled the query parameters with the data values.
+5) Delivery agent logs delivery time, response code, response time, and response body.
 
 ## Configuration
 The configuration commands are for Windows 10. The commands for a Linux machine will be similar. 
