@@ -32,8 +32,7 @@ To setup the PHP server two options were tested:
 
 `php -S localhost:80 -t "$PWD"`
 
-2. Download and install [XAMPP](https://www.apachefriends.org/download.html)
-After install run Apache module. This option will support logging and other useful features. By default the PHP code will be on "C:\xampp\htdocs". If you wish to change the default directory on the XAMPP app go to `Config->httpd.conf` and change the DocumentRoot and Directory:
+2. Download and install [XAMPP](https://www.apachefriends.org/download.html). Run the XAMPP Control Panel and start the Apache module. Using XAMPP will support logging and other useful features out of the box. By default the PHP code will be on "C:\xampp\htdocs". If you wish to change the default directory on the XAMPP app go to `Config->httpd.conf` and change the DocumentRoot and Directory:
 
 ```
 DocumentRoot "C:/xampp/htdocs"
